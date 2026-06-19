@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Serif Pro", Georgia, "Times New Roman", serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  color: #111;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+.page {
+  width: 100%;
+  max-width: 210mm;
+  margin: 0 auto;
+}
+
+.page-break {
+  page-break-before: always;
+}
+
+.form-header {
+  text-align: center;
+  border-bottom: 2px solid #666;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.page-header {
+  text-align: center;
+  border-bottom: 2px solid #666;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-id {
+  font-size: 10pt;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.form-header h1,
+.page-header h1 {
+  font-size: 20pt;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: #000;
+}
+
+.form-subtitle {
+  font-size: 10pt;
+  color: #444;
+  margin: 0;
+  font-style: italic;
+}
+
+.section {
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.85rem;
+  background: #fff;
+}
+
+.section h2 {
+  font-size: 13pt;
+  font-weight: 700;
+  margin: 0 0 0.6rem 0;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.3rem;
+}
+
+.section p {
+  margin: 0 0 0.5rem 0;
+}
+
+.section ul {
+  margin: 0 0 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.section li {
+  margin-bottom: 0.35rem;
+}
+
+.field-row {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.4rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #222;
+  min-width: 10rem;
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+}
+
+.value {
+  color: #000;
+  border-bottom: 1px solid #bbb;
+  flex-grow: 1;
+  padding-bottom: 0.05rem;
+}
+
+.signature-block {
+  margin-top: 1rem;
+}
+
+.signature-line {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.signature-line .line {
+  display: inline-block;
+  flex-grow: 1;
+  border-bottom: 1px solid #000;
+  margin-left: 0.5rem;
+  height: 1em;
+}
+
+.checklist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.checkbox {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 1.5px solid #555;
+  border-radius: 2px;
+  margin-right: 0.6rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.note {
+  font-size: 10pt;
+  color: #444;
+  font-style: italic;
+  margin-top: 0.75rem;
+}
+
+.form-footer {
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #999;
+  font-size: 9pt;
+  color: #555;
+  text-align: center;
+  line-height: 1.4;
+}

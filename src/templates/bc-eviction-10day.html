@@ -1,0 +1,238 @@
+<div class="page">
+  <header class="form-header">
+    <div class="form-id">RTB Form RTB-30</div>
+    <h1>10‑Day Notice to End Tenancy for Unpaid Rent</h1>
+    <p class="form-subtitle">Residential Tenancy Act, S.B.C. 2002, c. 78, s. 46</p>
+  </header>
+
+  <section class="section">
+    <h2>A. Landlord Information</h2>
+    <div class="field-row">
+      <span class="label">Landlord name:</span>
+      <span class="value">{{landlordName}}</span>
+    </div>
+    <div class="field-row">
+      <span class="label">Address:</span>
+      <span class="value">{{landlordAddress}}</span>
+    </div>
+    <div class="field-row">
+      <span class="label">Phone:</span>
+      <span class="value">{{landlordPhone}}</span>
+    </div>
+    <div class="field-row">
+      <span class="label">Email:</span>
+      <span class="value">{{landlordEmail}}</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>B. Tenant Information</h2>
+    <div class="field-row">
+      <span class="label">Tenant(s) named on the tenancy agreement:</span>
+      <span class="value">{{tenantNames}}</span>
+    </div>
+    <div class="field-row">
+      <span class="label">Rental unit address:</span>
+      <span class="value">{{rentalAddress}}</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>C. Rent Owing</h2>
+    <p>
+      The tenant has not paid the rent that was due on <strong>{{rentDueDate}}</strong>
+      for the rental unit described above. The monthly rent is <strong>{{rentAmount}}</strong>.
+    </p>
+    <div class="field-row">
+      <span class="label">Total rent outstanding as of this notice:</span>
+      <span class="value">{{rentOutstanding}}</span>
+    </div>
+    <div class="field-row">
+      <span class="label">Days overdue as of this notice:</span>
+      <span class="value">{{daysOverdue}}</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>D. Tenant Deadline to Pay</h2>
+    <p>
+      The tenant may cancel this notice by paying the full rent outstanding on or before
+      <strong>{{deadline}}</strong>.
+    </p>
+    <p>
+      If the tenant does not pay the full rent owing by the deadline, the tenancy will end
+      and the tenant must move out of the rental unit.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>E. Service of This Notice</h2>
+    <p>
+      This notice was served on the tenant <strong>{{serviceMethod}}</strong>.
+    </p>
+    <div class="field-row">
+      <span class="label">Effective service date:</span>
+      <span class="value">{{effectiveServiceDate}}</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>F. Declaration</h2>
+    <p>
+      I, <strong>{{landlordName}}</strong>, declare that the information provided in this notice
+      is true and correct to the best of my knowledge.
+    </p>
+    <div class="signature-block">
+      <div class="signature-line">
+        <span class="label">Signature of landlord/agent:</span>
+        <span class="line"></span>
+      </div>
+      <div class="signature-line">
+        <span class="label">Date of notice:</span>
+        <span class="value">{{noticeIssueDate}}</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="form-footer">
+    <p>
+      This notice is intended to align with the standard British Columbia Residential Tenancy
+      Branch 10‑Day Notice for unpaid rent. It does not constitute legal advice.
+    </p>
+  </footer>
+</div>
+
+<div class="page-break"></div>
+
+<div class="page">
+  <header class="page-header">
+    <h1>Landlord Checklist</h1>
+  </header>
+
+  <section class="section">
+    <h2>Before Serving the Notice</h2>
+    <ul class="checklist">
+      <li><span class="checkbox"></span> Confirm the rent was due on the date stated in the tenancy agreement.</li>
+      <li><span class="checkbox"></span> Calculate the exact amount of rent still owing, including any permitted late fees.</li>
+      <li><span class="checkbox"></span> Verify the tenant names match the tenancy agreement.</li>
+      <li><span class="checkbox"></span> Ensure the rental unit address is complete and accurate.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>When Completing the Notice</h2>
+    <ul class="checklist">
+      <li><span class="checkbox"></span> Fill in all required fields on Page 1.</li>
+      <li><span class="checkbox"></span> State the full rent outstanding and the correct due date.</li>
+      <li><span class="checkbox"></span> Give the tenant the full 10 clear days to pay or dispute.</li>
+      <li><span class="checkbox"></span> Sign and date the notice before service.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>After Serving the Notice</h2>
+    <ul class="checklist">
+      <li><span class="checkbox"></span> Keep a copy of the signed notice for your records.</li>
+      <li><span class="checkbox"></span> Record the date, time, and method of service.</li>
+      <li><span class="checkbox"></span> If the tenant pays in full by the deadline, the notice is cancelled.</li>
+      <li><span class="checkbox"></span> If the tenant does not pay, you may apply for an Order of Possession.</li>
+    </ul>
+  </section>
+</div>
+
+<div class="page-break"></div>
+
+<div class="page">
+  <header class="page-header">
+    <h1>Service Instructions</h1>
+  </header>
+
+  <section class="section">
+    <h2>Permitted Methods of Service</h2>
+    <p>
+      Under the Residential Tenancy Act, a landlord may serve a notice on a tenant using one
+      of the following methods:
+    </p>
+    <ul>
+      <li>Personal service on the tenant.</li>
+      <li>Leaving a copy with an adult who appears to live with the tenant.</li>
+      <li>Mailing the notice to the tenant at the rental unit address.</li>
+      <li>Sending the notice by fax, email, or other electronic method if the tenant has
+      agreed in writing to accept service electronically.</li>
+      <li>Leaving a copy in the mailbox or mail slot at the rental unit address.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Calculating the Effective Service Date</h2>
+    <p>
+      When service is by mail, the notice is generally considered served 5 days after mailing.
+      For personal service, electronic service (with consent), or service by leaving a copy at
+      the rental unit, the notice is usually considered served on the same day.
+    </p>
+    <p>
+      Saturdays, Sundays, and statutory holidays are typically excluded when counting the
+      10‑day period. Landlords should verify the current RTB rules for calculating time.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Proof of Service</h2>
+    <p>
+      Keep detailed records of how and when the notice was served. If you mail the notice,
+      retain proof of mailing. If you serve electronically, keep a copy of the sent message
+      and any read receipt or delivery confirmation.
+    </p>
+  </section>
+</div>
+
+<div class="page-break"></div>
+
+<div class="page">
+  <header class="page-header">
+    <h1>Tenant Rights Summary</h1>
+  </header>
+
+  <section class="section">
+    <h2>Right to Dispute</h2>
+    <p>
+      A tenant who receives a 10‑Day Notice for unpaid rent has the right to dispute the
+      notice by applying for dispute resolution with the Residential Tenancy Branch (RTB).
+      The application must be filed within the deadline shown on the notice.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Payment Cancellation Rule</h2>
+    <p>
+      The tenant may cancel the notice by paying the landlord the full amount of rent owing
+      on or before the deadline date stated in the notice. Once the full amount is paid, the
+      landlord cannot continue the eviction process based on this notice.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Important Timelines</h2>
+    <ul>
+      <li><strong>Effective service date:</strong> the date the notice is considered received.</li>
+      <li><strong>10 clear days:</strong> the time the tenant has to pay the rent or dispute.</li>
+      <li><strong>Dispute resolution deadline:</strong> within the period set out on the notice.</li>
+      <li><strong>Order of Possession:</strong> a landlord may apply only after the notice period expires if rent remains unpaid.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Residential Tenancy Branch Contact</h2>
+    <p>
+      For questions or to file a dispute resolution application, contact the RTB:
+    </p>
+    <ul>
+      <li>Phone: 1‑800‑665‑8779 (toll‑free) or 604‑660‑1020 in the Lower Mainland</li>
+      <li>Website: <em>gov.bc.ca/landlordtenant</em></li>
+    </ul>
+    <p class="note">
+      This summary is provided for general information only and does not replace the
+      Residential Tenancy Act or RTB policies. Tenants may wish to seek legal advice.
+    </p>
+  </section>
+</div>
