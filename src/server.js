@@ -1,67 +1,45 @@
-import puppeteer from "puppeteer";
-import fs from "fs";
-import path from "path";
+import express from "express";
+import { renderBCEvictionNotice } from "./renderers/bc-eviction-10day.js";
 
-export async function renderBCEvictionNotice(data) {
-  console.log("Renderer: starting");
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-  const templatePath = path.join(process.cwd(), "src", "templates", "bc-eviction-10day.html");
-  const cssPath = path.join(process.cwd(), "src", "styles", "bc-eviction-10day.css");
+app.use(express.json({ limit: "2mb" }));
 
-  console.log("Renderer: templatePath =", templatePath);
-  console.log("Renderer: cssPath =", cssPath);
+app.use((req, res, next) => {
+  const timestamp = new Date().toISOString();
+  console.log(`[${timestamp}] ${req.method} ${req.path}`);
+  next();
+});
 
-  let html;
-  let css;
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
 
+app.post("/bc/eviction-10day", async (req, res) => {
   try {
-    html = fs.readFileSync(templatePath, "utf8");
-    css = fs.readFileSync(cssPath, "utf8");
-    console.log("Renderer: template + css loaded");
+    const pdfBuffer = await renderBCEvictionNotice(req.body);
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", "attachment; filename=bc-eviction-10day.pdf");
+    res.send(pdfBuffer);
   } catch (err) {
-    console.error("Renderer: failed to load template or css", err);
-    throw err;
+    console.error("PDF generation failed:", err);
+    res.status(500).json({ error: "Failed to generate PDF" });
   }
+});
 
-  html = html.replace(/\{\{(\w+)\}\}/g, (match, key) => {
-    return data[key] !== undefined ? data[key] : "";
+const server = app.listen(PORT, () => {
+  console.log(`PDF service running on port ${PORT}`);
+  console.log(`Health check: http://localhost:${PORT}/health`);
+});
+
+const gracefulShutdown = (signal) => {
+  console.log(`\n${signal} received. Shutting down gracefully...`);
+  server.close(() => {
+    console.log("HTTP server closed.");
+    process.exit(0);
   });
+};
 
-  console.log("Renderer: launching browser…");
-
-  let browser;
-  try {
-    browser = await puppeteer.launch({
-      headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"]
-    });
-    console.log("Renderer: browser launched");
-  } catch (err) {
-    console.error("Renderer: browser launch failed", err);
-    throw err;
-  }
-
-  const page = await browser.newPage();
-
-  try {
-    await page.setContent(`<style>${css}</style>${html}`);
-    console.log("Renderer: content set");
-  } catch (err) {
-    console.error("Renderer: setContent failed", err);
-    throw err;
-  }
-
-  try {
-    const pdf = await page.pdf({
-      format: "A4",
-      printBackground: true,
-      margin: { top: "1in", bottom: "1in", left: "1in", right: "1in" }
-    });
-    console.log("Renderer: pdf generated");
-    await browser.close();
-    return pdf;
-  } catch (err) {
-    console.error("Renderer: pdf generation failed", err);
-    throw err;
-  }
-}
+process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+process.on("SIGINT", () => gracefulShutdown("SIGINT"));

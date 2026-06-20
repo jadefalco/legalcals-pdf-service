@@ -9,7 +9,6 @@ export async function renderBCEvictionNotice(data) {
   let html = fs.readFileSync(templatePath, "utf8");
   const css = fs.readFileSync(cssPath, "utf8");
 
-  // Replace every {{variable}} placeholder in the template
   html = html.replace(/\{\{(\w+)\}\}/g, (match, key) => {
     return data[key] !== undefined ? data[key] : "";
   });
