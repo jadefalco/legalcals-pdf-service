@@ -1,11 +1,12 @@
 {
   "name": "legalcals-pdf-service",
   "version": "1.0.0",
-  "description": "",
+  "description": "PDF generation microservice for legal notices",
   "main": "src/server.js",
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
+    "postinstall": "PUPPETEER_PRODUCT=chrome PUPPETEER_SKIP_DOWNLOAD=false puppeteer browsers install chrome",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,8 @@
   "dependencies": {
     "express": "^5.2.1",
     "puppeteer": "^25.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

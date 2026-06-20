@@ -1,0 +1,17 @@
+POST https://legalcals-pdf-service.onrender.com/bc/eviction-10day
+Content-Type: application/json
+
+{
+  "landlordName": "John Landlord",
+  "landlordAddress": "123 Main St, Kelowna, BC",
+  "tenantNames": "Jane Tenant",
+  "rentalAddress": "Unit 4, 123 Main St, Kelowna, BC",
+  "rentAmount": "$1500",
+  "rentDueDate": "2024-01-01",
+  "rentOutstanding": "$1500",
+  "daysOverdue": "10",
+  "deadline": "2024-01-11",
+  "serviceMethod": "in_person",
+  "effectiveServiceDate": "2024-01-01",
+  "noticeIssueDate": "2024-01-01"
+}
